@@ -30,10 +30,10 @@ const Container = ({scrollOffset, col, items, className }: {scrollOffset:number,
         <SingleFoodItem key={item.id} item = {item} col = {col} admin = {isAdmin(user)}/>
       ))}
       {
-        !items && (!col ? (<Loader progress = {"Fetching Food Items....."} />): (<NotFound text="Fetching Food Items..."  />))
+        !items && (!col ? (<Loader progress = {"Fetching For Workers....."} />): (<NotFound text="Fetching For Workers..."  />))
       }
       {
-        items && items.length <= 0 &&  (<NotFound text="No Food Items Available "  />)
+        items && items.length <= 0 &&  (<NotFound text="No Workers Available "  />)
       }
     </motion.div>
   );
