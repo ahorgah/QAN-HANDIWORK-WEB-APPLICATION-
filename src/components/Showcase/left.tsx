@@ -17,10 +17,10 @@ const Left = () => {
         <span className="text-orange-600 text-[2.5rem] lg:text-[4.6rem]"> Accra</span>
       </p>
       <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus nam
-        delectus sed, vel quaerat, libero nesciunt debitis, architecto
-        repudiandae accusamus aut exercitationem nisi non doloribus! Temporibus
-        officia architecto reiciendis blanditiis.
+      Bridging the gap between customers in need of various handyman services 
+      and skilled freelance professionals.Enhancing visibility, streamline hiring process, 
+      promoting trust and reliability, and provide a transparent marketplace for freelancers and
+      customers.
       </p>
       <motion.button
         whileHover={{ scale: 1.1 }}
