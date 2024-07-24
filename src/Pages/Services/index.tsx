@@ -10,12 +10,6 @@ const Services = () => {
 <p><b>Plumbing Services</b></p>
 <p>From leaky faucets and clogged drains to full bathroom installations, our experienced plumbers provide efficient and affordable solutions. Trust us to handle all your plumbing needs with precision and care.
 </p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
 <p><b>Carpentry Work</b></p>
 <p>Need custom furniture, door repairs, or cabinetry? Our skilled carpenters bring craftsmanship and attention to detail to every project, ensuring high-quality results that enhance your home’s aesthetic and functionality.
 </p>
