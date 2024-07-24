@@ -14,7 +14,7 @@ const Menu = ({title}:{title?:string}) => {
     
   return (
     <section className="w-full my-5" id="menu">
-      <div className="w-full flex items-center justify-center">
+      {/* <div className="w-full flex items-center justify-center">
         <Title title={title || "Our Available Workers"} center />
       </div>
       <Filters filter={filter} setFilter = {setFilter} />
@@ -23,7 +23,7 @@ const Menu = ({title}:{title?:string}) => {
         col
         scrollOffset={scrollValue}
         items={filter === "all" ? foodItems : FilterFood(filter)}
-      />
+      /> */}
     </section>
   );
 };
