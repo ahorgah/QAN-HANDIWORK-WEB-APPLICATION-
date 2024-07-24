@@ -18,7 +18,7 @@ const Left = () => {
       </p>
       <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
       Bridging the gap between customers in need of various handyman services 
-      and skilled freelance professionals.Enhancing visibility, streamline hiring process, 
+      and skilled freelance professionals. Enhancing visibility, streamline hiring process, 
       promoting trust and reliability, and provide a transparent marketplace for freelancers and
       customers.
       </p>
