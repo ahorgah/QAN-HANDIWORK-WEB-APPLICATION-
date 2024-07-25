@@ -21,6 +21,7 @@ customer search, trust and reliability concerns, pricing transparency issues, an
 feedback mechanisms. By doing so, the platform will revolutionize the way freelancers and
 customers in the handy works industry connect, collaborate, and thrive in Accra, Ghana, and beyond.</p>
     </div>
+    
   );
 }
 
