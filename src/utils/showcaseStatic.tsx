@@ -8,7 +8,9 @@ export const data = [
         desc: "",
         price: '',
         imgSrc: Strawberry
+          
     },
+    
     {   
         id: 3,
         title: 'Constructors',

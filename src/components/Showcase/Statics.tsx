@@ -8,8 +8,9 @@ const StaticsImages: React.FC<foodItemsStatic> = ({ items }) => {
       {items.map((item, index) => (
         <div
           key={index}
-          className="cursor-pointer min-h-[140px] lg:min-h-[210px] min-w-[150px] lg:min-w-[200px] drop-shadow-lg p-2 bg-cardOverlay backdrop-blur-md rounded-xl flex flex-col items-center justify-center"
+          className="cursor-pointer min-h-[140px] lg:min-h-[5px] min-w-[150px] lg:min-w-[200px] drop-shadow-lg p-2 bg-cardOverlay backdrop-blur-md rounded-xl flex flex-col items-center justify-center"
         >
+        
           <motion.img
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 1.1 }}
