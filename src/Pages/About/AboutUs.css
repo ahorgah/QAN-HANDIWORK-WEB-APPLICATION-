@@ -8,11 +8,14 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    font-weight: bold;
+    color: rgb(210, 96, 3);
   }
   
   .team-member {
     margin: 20px;
     text-align: center;
+    
   }
   
   .profile-image {
