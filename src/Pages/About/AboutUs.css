@@ -1,6 +1,7 @@
 /* src/pages/AboutUs.css */
 .about-us {
-    text-align: center;
+    text-align: center ;
+    
   }
   
   .team {
@@ -15,8 +16,9 @@
   }
   
   .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-  }
+    width: 250px; /* Set a fixed width */
+    height: 250px; /* Set the height equal to the width to make it square */
+    border-radius: 20px; /* Set a specific border-radius to round the edges */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
   
