@@ -7,7 +7,8 @@ const Services = () => {
 
 <ol><p> <b>Electrical Repairs</b></p>
 <p>Our certified electricians handle everything from minor electrical issues to complex wiring jobs.<h1>
-</h1>Whether it's fixing a faulty switch, installing new lighting,or ensuring your home is safely wired, we've got you covered.
+</h1>Whether it's fixing a faulty switch, installing new lighting,or ensuring your home is safely wired,
+   <h1>we've got you covered.</h1>
 </p>
 <p><b>Plumbing Services</b></p>
 <p>From leaky faucets and clogged drains to full bathroom installations,

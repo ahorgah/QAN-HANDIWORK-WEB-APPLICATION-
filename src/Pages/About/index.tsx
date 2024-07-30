@@ -1,6 +1,11 @@
-const About = () => {
+import React from 'react';
+import teamData from '../../teamData'; // Correct relative path to teamData.ts
+import TeamMember from '../../components/TeamMember';
+import './AboutUs.css';
+const About: React.FC = () => {
   return (
     <div className="text-base text-textColor text-center md:text-left md:w-[80%]">
+      <span className="text-orange-600 text-[2.5rem] lg:text-[1.6rem]"><b> ABOUT US - QAN HANDIWORK</b> </span>
       <h1>The handy works industry in Accra, Ghana and other regions of the country faces several
 challenges that hinder the efficient connection between freelancers and customers. These
 challenges include limited visibility for freelancers, difficulties in finding qualified
@@ -20,6 +25,17 @@ challenges faced by freelancers and customers, including limited visibility, ine
 customer search, trust and reliability concerns, pricing transparency issues, and limited
 feedback mechanisms. By doing so, the platform will revolutionize the way freelancers and
 customers in the handy works industry connect, collaborate, and thrive in Accra, Ghana, and beyond.</p>
+   
+<div className="team">
+        {teamData.map((member) => (
+          <TeamMember 
+            key={member.id}
+            name={member.name}
+            role={member.role}
+            image={member.image}
+          />
+        ))}
+      </div>
     </div>
     
   );
