@@ -1,6 +1,6 @@
 const Services = () => {
   return (
-    <div className='flex w-full h-auto flex-col items-center justify-center'>
+    <div className="text-base text-textColor text-center md:text-left md:w-[90%] flex w-full h-auto flex-col items-center justify-center">
       <h1>Welcome to Accra's Premier Online Handyman Platform, your go-to solution for all your home repair and maintenance needs.</h1>
       <h1> Our platform connects you with skilled and reliable freelance handy workers, offering a wide range of services to keep your home in top shape.</h1>
       <span className="text-orange-600 text-[2.5rem] lg:text-[1.6rem]"><b> Our Services</b> </span>
@@ -39,7 +39,7 @@ We diagnose and repair issues quickly, extending the life of your appliances.
 </p>
 <span className="text-orange-600 text-[2.5rem] lg:text-[1.6rem]"><b> Why Choose Us </b> </span>
 Verified Professionals: All our handy workers undergo rigorous background checks and are verified for their skills and reliability.
-Affordable Pricing: We offer competitive rates without compromising on quality, ensuring you get the best value for your money.
+<p> Affordable Pricing:</p> We offer competitive rates without compromising on quality, ensuring you get the best value for your money.
 Convenient Booking: Easily book services online at your convenience. Schedule appointments that fit your busy lifestyle.
 Customer Satisfaction: Our commitment to excellent customer service ensures that your satisfaction is our top priority. We strive to exceed your expectations on every job.
 Safety First: We prioritize the safety of our customers and workers by adhering to all necessary safety protocols and guidelines.
