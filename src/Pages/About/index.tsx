@@ -33,7 +33,7 @@ customers in the handy works industry connect, collaborate, and thrive in Accra,
         <p>What motivates us the most is the sense of unity and the eagerness to provide simple yet effective services for all our customers</p>
       </p>
       <p>Welcome to our company. We are a team of dedicated professionals...</p>  
-<div className="team">
+<div className="team  mt-5">
         {teamData.map((member) => (
           <TeamMember 
             key={member.id}
