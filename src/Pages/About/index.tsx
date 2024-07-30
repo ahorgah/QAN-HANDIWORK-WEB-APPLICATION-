@@ -4,7 +4,7 @@ import TeamMember from '../../components/TeamMember';
 import './AboutUs.css';
 const About: React.FC = () => {
   return (
-    <div className="text-base text-textColor text-center md:text-left md:w-[90%]">
+    <div className="text-base text-textColor  mt-5 text-center md:text-left md:w-[90%]">
       <span className="text-orange-600 space-y-5 text-[2.5rem] lg:text-[1.6rem] "><b> ABOUT US - QAN HANDIWORK</b> <div className="space-y-5"></div></span>
       <h1>The handy works industry in Accra, Ghana and other regions of the country faces several
 challenges that hinder the efficient connection between freelancers and customers. These
@@ -27,7 +27,7 @@ feedback mechanisms. By doing so, the platform will revolutionize the way freela
 customers in the handy works industry connect, collaborate, and thrive in Accra, Ghana, and beyond.</p>
 
  <div className="about-us">
- <span className="text-orange-600 space-y-5 text-[2.5rem] lg:text-[1.6rem]"><b> THE TEAM</b> <div className="space-y-5"></div></span>
+ <span className="text-orange-600 space-y-5  text-[2.5rem] lg:text-[1.6rem] "><b> THE TEAM</b> <div className="space-y-5 "></div></span>
       <p>We are final year students of Ghana Communication Technology University, all from the BIT class who have great interet in providing services 
         that will be able to bridge the technological barrier and help make living easier for all.
         <p>What motivates us the most is the sense of unity and the eagerness to provide simple yet effective services for all our customers</p>
