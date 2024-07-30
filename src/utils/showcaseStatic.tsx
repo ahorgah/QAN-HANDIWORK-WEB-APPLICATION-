@@ -1,3 +1,4 @@
+import { BiBorderRadius } from "react-icons/bi";
 import {Chicken, Fish, Icecream, Strawberry} from "../components/Assets";
 
 export const data = [
