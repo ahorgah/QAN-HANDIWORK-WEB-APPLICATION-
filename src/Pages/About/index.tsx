@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className='flex w-full h-auto flex-col items-center justify-center'>
+    <div className="text-base text-textColor text-center md:text-left md:w-[80%]">
       <h1>The handy works industry in Accra, Ghana and other regions of the country faces several
 challenges that hinder the efficient connection between freelancers and customers. These
 challenges include limited visibility for freelancers, difficulties in finding qualified
