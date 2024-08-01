@@ -7,49 +7,49 @@ export const Categories = [
     {
         id: 1,
         name: "Mechanics",
-        urlParam: 'chicken',
+        urlParam: 'Mechanics',
         icon:<FaWrench />,
     },
     {
         id: 2,
         name: "Constructor",
-        urlParam: 'fruits',
+        urlParam: 'Constructor',
         icon:< GiFruitTree />,
     },
     {
         id: 3,
         name: "Bakers",
-        urlParam: 'drinks',
+        urlParam: 'Bakers',
         icon: <GiBeerBottle />,
     },
     {
         id: 4,
         name: "Welders",
-        urlParam: 'desserts',
+        urlParam: 'dWelders',
 
     },
     {
         id: 5,
         name: "Painters",
-        urlParam: 'icecreams',
+        urlParam: 'Painters',
         icon: <MdOutlineIcecream />,
     },
     {
         id: 6,
         name: "Weavers",
-        urlParam: 'fish',
+        urlParam: 'Weavers',
         icon: <FaFish />,
     },
     {
         id: 7,
         name: "Carpenters",
-        urlParam: 'rice',
+        urlParam: 'Carpenters',
         icon: <GiBowlOfRice />,
     },
     {
         id: 8,
         name: "Plumbers",
-        urlParam: 'curry',
+        urlParam: 'Plumbers',
 
     }
 ]
