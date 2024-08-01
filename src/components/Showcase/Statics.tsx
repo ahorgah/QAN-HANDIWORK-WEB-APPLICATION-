@@ -16,7 +16,7 @@ const StaticsImages: React.FC<foodItemsStatic> = ({ items }) => {
             whileTap={{ scale: 1.1 }}
             src={item.imgSrc}
             alt="icecream"
-            className="w-24 lg:w-40 -mt-10 lg:-mt-20"
+            className="w-24 lg:w-40 -mt-10 rounded-xl lg:-mt-20"
           />
           <p className="text-base lg:text-lg font-semibold text-textColor">{item.title}</p>
           <p className="text-[10px] lg:text-lg text-lightGray font-semibold my-2 lg:my-3">
