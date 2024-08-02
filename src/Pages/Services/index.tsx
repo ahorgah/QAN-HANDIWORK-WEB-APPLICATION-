@@ -7,28 +7,28 @@ const Services = () => {
         <div className="space-y-5"></div> </span>
 
 <ol><p> <b>Electrical Repairs</b></p>
-<p>Our certified electricians handle everything from minor electrical issues to complex wiring jobs.<h1>
-</h1>Whether it's fixing a faulty switch, installing new lighting,or ensuring your home is safely wired,
-   <h1>we've got you covered.</h1>
+<p>Our certified electricians handle everything from minor electrical issues to complex wiring jobs.
+Whether it's fixing a faulty switch, installing new lighting,<h1>or ensuring your home is safely wired,
+   we've got you covered.</h1>
 </p>
 <p><b>Plumbing Services</b></p>
 <p>From leaky faucets and clogged drains to full bathroom installations,
-<h1> our experienced plumbers provide efficient and affordable solutions.</h1>
+our experienced plumbers provide efficient and affordable solutions.
 <h1> Trust us to handle all your plumbing needs with precision and care.</h1>
 </p>
 <p><b>Carpentry Work</b></p>
 <p>Need custom furniture, door repairs, or cabinetry?
-<h1> Our skilled carpenters bring craftsmanship and attention to detail to every project,</h1>
+Our skilled carpenters bring craftsmanship and attention to detail to every project,
 <h1>  ensuring high-quality results that enhance your home’s aesthetic and functionality.</h1>
 </p>
 <p><b>Painting and Decorating</b></p>
 <p>Transform your space with our professional painting and decorating services.
-<h1>Whether you’re looking to refresh a single room or give your entire home a new look,</h1>
-<h1>our painters deliver flawless finishes and vibrant colors.</h1>
+Whether you’re looking to refresh a single room or give your entire home a new look,
+our painters deliver flawless finishes and vibrant colors.
 </p>
 <p><b>Home Cleaning</b></p>
 <p>Our thorough and reliable cleaning services ensure your home remains spotless and welcoming.
-<h1>Choose from regular cleaning, deep cleaning, or specialized cleaning services tailored to your needs.</h1>
+Choose from regular cleaning, deep cleaning,<h1> or specialized cleaning services tailored to your needs.</h1>
 </p>
 <p><b>Appliance Repairs</b></p>
 <p>Our technicians are adept at fixing a wide range of household appliances,
