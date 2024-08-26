@@ -34,7 +34,7 @@ const Body = ({ action }: { action: any }) => {
       <Selector />
       {/* payment form  */}
       <div className="min-h-[50vh] mt-5">
-        {paymentMethod === "mobile_money" ? <MomoForm /> : <CardForm />}
+        {paymentMethod === "online" ? <MomoForm /> : <CardForm />}
         <div className="w-full flex items-center justify-center my-2">
           <p className="text-gray-300">
             Amount Due:{" "}
@@ -51,7 +51,7 @@ const Body = ({ action }: { action: any }) => {
           >
             {!loading && <BiLock className="" />}
             {!loading ? (
-              "PAY NOW"
+              paymentMethod == "online"? "SEND REQUEST": "CONTACT PROVIDER"
             ) : (
               <ImSpinner3 className="animate animate-spin" />
             )}

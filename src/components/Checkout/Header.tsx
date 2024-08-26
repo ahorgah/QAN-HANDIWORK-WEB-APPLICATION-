@@ -14,7 +14,7 @@ const Header = ({ action }: { action: any }) => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 200 }}
       >
-        <p>Secured Payment</p>
+        <p>Service Request</p>
       </motion.div>
       <motion.div
         whileTap={{scale:0.9}} 

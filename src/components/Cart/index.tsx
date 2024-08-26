@@ -30,7 +30,7 @@ const Cart = () => {
               </div>
             )}
           </motion.div>
-          {!cartItems && <NotFound text={"Cart Items not available"} />}
+          {!cartItems && <NotFound text={"Pneding requests not available"} />}
         </>
       )}
     </>

@@ -20,7 +20,7 @@ const MomoForm = () => {
       >
         Select Provider
       </label>
-      <select
+      {/* <select
         id="provider"
         className="w-full px-3 py-2 mb-1 border-2 text-white border-gray-500 rounded-md focus:outline-none focus:border-orange-500 focus:text-orange-500 bg-cartItem transition-colors"
         onChange={(e) => updateCheckoutData("provider", e.target.value)}
@@ -30,14 +30,14 @@ const MomoForm = () => {
         <option value="airtel">Airtel Tigo Money</option>
         <option value="Vodafone">Vodafone Cash</option>
 
-      </select>
+      </select> */}
     </div>
     <div className="w-full flex flex-col mb-2">
       <label
         htmlFor="name"
         className="font-bold text-sm mb-1 text-gray-100"
       >
-        Account Name
+        Full Name
       </label>
       <input
         type="text"
@@ -45,6 +45,7 @@ const MomoForm = () => {
         className="w-full px-3 py-2 mb-1 border-2 text-white border-gray-500 rounded-md focus:outline-none focus:border-orange-500 focus:text-orange-500 bg-cartItem transition-colors"
         placeholder="Enter your name"
         autoComplete="off"
+        onChange = {(e) => updateCheckoutData("name", e.target.value)}
       />
     </div>
     <div className="w-full flex flex-col mb-2">
@@ -52,7 +53,7 @@ const MomoForm = () => {
         htmlFor="number"
         className="font-bold text-sm mb-1 text-gray-100"
       >
-        MOMO Number
+        Phone Number
       </label>
       <input
         type="text"
@@ -61,6 +62,37 @@ const MomoForm = () => {
         placeholder="Enter your number"
         autoComplete="off"
         onChange = {(e) => updateCheckoutData("phone", e.target.value)}
+      />
+    </div>
+    <div className="w-full flex flex-col mb-2">
+      <label
+        htmlFor="email"
+        className="font-bold text-sm mb-1 text-gray-100"
+      >
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        className="w-full px-3 py-2 mb-1 border-2 text-white border-gray-500 rounded-md focus:outline-none focus:border-orange-500 focus:text-orange-500 bg-cartItem transition-colors"
+        placeholder="Enter your email"
+        autoComplete="off"
+        onChange = {(e) => updateCheckoutData("email", e.target.value)}
+      />
+    </div>
+    <div className="w-full flex flex-col mb-2">
+      <label
+        htmlFor="email"
+        className="font-bold text-sm mb-1 text-gray-100"
+      >
+        Extra Comments
+      </label>
+      <textarea
+        id="comments"
+        className="w-full px-3 py-2 mb-1 border-2 text-white border-gray-500 rounded-md focus:outline-none focus:border-orange-500 focus:text-orange-500 bg-cartItem transition-colors"
+        placeholder="Any thing service provider must know?"
+        autoComplete="off"
+        onChange = {(e) => updateCheckoutData("comments", e.target.value)}
       />
     </div>
   </div>

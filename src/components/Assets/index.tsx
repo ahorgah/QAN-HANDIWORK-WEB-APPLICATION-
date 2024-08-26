@@ -6,8 +6,8 @@ import BikeDeliveryI from "../../img/delivery.png";
 import HeroBgI from "../../img/hero-bg.png";
 import EmptyCartI from "../../img/emptyCart.svg";
 import NotFoundI from "../../img/NotFound.svg";
-import Visa from "../../img/visa.png";
-import Momo from "../../img/momo.png";
+import Visa from "../../img/offsite.jpeg";
+import Momo from "../../img/online.png";
 // Showcase Banner Static Assets
 import IcreamI from "../../img/wed.png";
 import StrawberryI from "../../img/mec.jpg";
