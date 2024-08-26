@@ -19,13 +19,28 @@ export const data = [
         price: '',
         imgSrc: Chicken
     },
+    {   
+        id: 3,
+        title: 'Constructors',
+        desc: "",
+        price: '',
+        imgSrc: Chicken
+    },
     {
         id: 4,
         title: 'Plumber',
         desc: "",
         price: '',
         imgSrc: Fish
-    },{
+    },
+    {
+        id: 1,
+        title: 'Welder',
+        desc: "",
+        price: '',
+        imgSrc: Icecream
+    },
+    {
         id: 1,
         title: 'Welder',
         desc: "",

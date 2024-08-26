@@ -1,6 +1,7 @@
 import React from "react";
 import { BikeDelivery } from "../Assets";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const Left = () => {
   return (
     <div className="py-2 flex-1 flex flex-col items-start justify-center gap-3">
@@ -26,7 +27,7 @@ const Left = () => {
         whileHover={{ scale: 1.1 }}
         className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
       >
-        Request Now
+        <Link to={"/menu"}>Request Now</Link>
       </motion.button>
     </div>
   );

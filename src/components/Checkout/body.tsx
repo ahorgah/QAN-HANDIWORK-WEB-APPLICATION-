@@ -22,10 +22,10 @@ const Body = ({ action }: { action: any }) => {
       setLoading(false);
       await emptyCart(cartItems, foodItems, dispatch);
       action(false);
-      toast.success("Order completed successfuly with payment. Thank you for your patronage.", {
+      paymentMethod == "online" ? toast.success("Service request has been sent successfuly", {
         position: "top-center",
         autoClose: 6000
-      });
+      }): window.location.href="tel:+233556844332"
     }, 3000);
   };
   return (
