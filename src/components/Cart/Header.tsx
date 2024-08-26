@@ -15,8 +15,8 @@ const CartHeader = () => {
       </motion.div>
 
       <div className="flex items-center justify-center gap-2">
-        Cart
-        <MdShoppingBasket className="text-xl cursor-pointer text-cartNumBg" />
+        Pending Services
+        {/* <MdShoppingBasket className="text-xl cursor-pointer text-cartNumBg" /> */}
       </div>
 
       {user ? (
@@ -35,7 +35,7 @@ const CartHeader = () => {
             whileHover={{ scale: 0.9 }}
             className="flex items-center justify-center gap-2 p-1 px-2 my-2 bg-cardOverlay rounded-md hover:shadow-sm text-textColor text-base"
           >
-            <MdLogin className="text-cartNumBg" /> Login to cart
+            <MdLogin className="text-cartNumBg" /> Login
           </motion.p>
         </Link>
       )}

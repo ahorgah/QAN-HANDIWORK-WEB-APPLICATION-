@@ -11,7 +11,7 @@ const CartTotal = ({checkoutState}: {checkoutState:any}) => {
           <p className="text-gray-400 text-base md:text-lg "><span className="text-sm text-red-600">₵</span> {cartTotal}</p>
         </div>
         <div className="w-full flex items-center justify-between">
-          <p className="text-gray-400 text-base md:text-lg ">Delivery</p>
+          <p className="text-gray-400 text-base md:text-lg ">System Fee</p>
           <p className="text-gray-400 text-base md:text-lg">-</p>
           <p className="text-gray-400 text-base md:text-lg "><span className="text-sm text-red-600">₵</span> {0.00}</p>
         </div>
@@ -22,7 +22,8 @@ const CartTotal = ({checkoutState}: {checkoutState:any}) => {
           <p className="text-gray-50 text-base md:text-lg "><span className="text-sm text-red-600">₵</span> {cartTotal}</p>
         </div>
         <motion.button onClick = {() => checkoutState(true)} whileTap={{scale:0.8}} className='w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg'>
-          Checkout ₵{cartTotal}
+          Request Service 
+          {/* ₵{cartTotal} */}
         </motion.button>
 
     </div>

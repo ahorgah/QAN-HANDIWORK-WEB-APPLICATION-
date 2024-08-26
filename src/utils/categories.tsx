@@ -1,6 +1,6 @@
 import { GiFruitTree, GiChickenOven, GiBeerBottle, GiBowlOfRice } from "react-icons/gi";
 import {FaWrench, }from "react-icons/fa";
-import { MdOutlineIcecream } from "react-icons/md";
+import { MdOutlineIcecream , MdDesignServices} from "react-icons/md";
 import {FaFish} from "react-icons/fa";
 
 export const Categories = [
@@ -14,11 +14,11 @@ export const Categories = [
         id: 2,
         name: "Constructor",
         urlParam: 'Constructor',
-        icon:< GiFruitTree />,
+        icon:<MdDesignServices />,
     },
     {
         id: 3,
-        name: "Bakers",
+        name: "Electricals",
         urlParam: 'Bakers',
         icon: <GiBeerBottle />,
     },

@@ -59,7 +59,7 @@ const Navigations = ({ direction }: { direction?: string }) => {
         </motion.li>
       </motion.ul>
 
-      {/* <motion.div
+      <motion.div
         whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.1 }}
         className="relative flex items-center justify-center text-textColor"
@@ -73,7 +73,7 @@ const Navigations = ({ direction }: { direction?: string }) => {
             </p>
           </div>
         )}
-      </motion.div> */}
+      </motion.div>
     </div>
   );
 };
