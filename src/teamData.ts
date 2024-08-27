@@ -1,7 +1,7 @@
 // src/teamData.ts
 import bobo from './img/bobo.jpg';
 import kenny from './img/kenny.jpg';
-import nene from './img/nene.jpg';
+import nene from './img/nene1.jpg';
 
 export interface TeamMember {
     id: number;
