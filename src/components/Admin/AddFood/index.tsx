@@ -3,8 +3,9 @@ import { BiCategory, BiFoodMenu } from "react-icons/bi";
 import {
   MdDeleteOutline,
   MdOutlineDataSaverOn,
-  MdOutlineFastfood,
+  MdOutlineCategory,
   MdOutlineFoodBank,
+  MdGppGood,
   MdOutlineProductionQuantityLimits,
 } from "react-icons/md";
 import {
@@ -39,11 +40,11 @@ const AddFood = () => {
     firebaseRemoveUploadedImage(image, setImage, setLoading);
   };
   const saveItem = () => {
-    setLoadermessage(`Saving Product ${title}.`);
+    setLoadermessage(`Saving image ${title}.`);
     setLoading(true);
     try {
       if (!title || !calories || !price || !image || !category) {
-        toast.error("Please fill all fields before saving product 🤗");
+        toast.error("Please fill all fields before saving image 🤗");
         setLoading(false);
         return;
       } else {
@@ -103,7 +104,7 @@ const AddFood = () => {
     <div className="w-full h-fullflex items-center justify-center">
       <div className="border w-full  flex border-gray-300 items-center rounded-lg p-4 flex-col justify-center gap-4  ">
         <div className="w-full py-3 border-b border-gray-300 flex -tems-center gap-2">
-          <MdOutlineFastfood className="text-xl text-gray-600" />
+          <MdOutlineCategory className="text-xl text-gray-600" />
           <input
             type="text"
             required
@@ -173,11 +174,11 @@ const AddFood = () => {
         </div>
         <div className="w-full flex flex-col md:flex-row items-center gap-3">
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-            <MdOutlineFoodBank className="text-gray-600 text-2xl" />
+            <MdGppGood  className="text-gray-600 text-2xl" />
             <input
               type="text"
               required
-              placeholder="Calories"
+              placeholder="Good or Average ?"
               autoFocus
               className="h-full w-full  bg-transparent pl-2 text-textColor outline-none border-none placeholder:text-gray-400"
               value={calories}
