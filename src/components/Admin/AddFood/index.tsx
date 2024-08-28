@@ -59,9 +59,9 @@ const AddFood = () => {
         };
         toast
           .promise(firebaseSaveProduct(data), {
-            pending: "Saving Product...",
-            success: "Product saved successfully",
-            error: "Error saving product, Please try again🤗",
+            pending: "Saving Image...",
+            success: "Image saved successfully",
+            error: "Error saving image, Please try again🤗",
           })
           .then(() => {
             clearForm();
@@ -76,7 +76,7 @@ const AddFood = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Error whilesaving product");
+      toast.error("Error whilesaving image");
     }
   };
   const clearForm = () => {
@@ -107,7 +107,7 @@ const AddFood = () => {
           <input
             type="text"
             required
-            placeholder="Enter food name"
+            placeholder="Enter Category name"
             autoFocus
             className="h-full w-full  bg-transparent pl-2 text-textColor outline-none border-none placeholder:text-gray-400"
             value={title}
@@ -147,7 +147,7 @@ const AddFood = () => {
                   <div className="relative h-full">
                     <img
                       src={image}
-                      alt="uploaded food"
+                      alt="uploaded image"
                       className="w-full h-full object-cover"
                     />
                     <motion.button
