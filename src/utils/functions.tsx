@@ -25,13 +25,13 @@ export const addToCart = async (
   dispatch: any
 ) => {
   if (!user) {
-    toast.error("Please login to add items to cart", {
+    toast.error("Please login to add service to cart", {
       icon: <MdShoppingBasket className="text-2xl text-cartNumBg" />,
       toastId: "unauthorizedAddToCart",
     });
   } else {
     if (cartItems.some((item: cartItem) => item["fid"] === fid)) {
-      toast.error("Item already in cart", {
+      toast.error("Service already in cart", {
         icon: <MdShoppingBasket className="text-2xl text-cartNumBg" />,
         toastId: "itemAlreadyInCart",
       });
@@ -358,5 +358,5 @@ export const deleteFood = async (
     type: "SET_FOOD_ITEMS",
     foodItems,
   });
-  toast.success("Food deleted successfully");
+  toast.success("Service deleted successfully");
 };
