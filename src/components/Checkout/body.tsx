@@ -25,7 +25,7 @@ const Body = ({ action }: { action: any }) => {
       paymentMethod == "online" ? toast.success("Service request has been sent successfuly", {
         position: "top-center",
         autoClose: 6000
-      }): window.location.href="tel:+233556844332"
+      }): window.location.href="tel:+233549783787"
     }, 3000);
   };
   return (
