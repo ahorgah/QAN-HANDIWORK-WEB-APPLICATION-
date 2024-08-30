@@ -1,7 +1,7 @@
 // import React from 'react'
 
 import { MdOutlineRestaurantMenu, MdShoppingBasket } from "react-icons/md";
-
+import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Logo } from "../Assets";
 import { motion } from "framer-motion";
@@ -56,14 +56,14 @@ const MobileNav = ({
           className="relative flex items-center justify-center text-textColor"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <MdOutlineRestaurantMenu className="text-headingColor text-4xl" />
+          <FaHome className="text-headingColor text-4xl" />
         </motion.div>
       </motion.div>
       <div
         className={`flex items-center justify-center w-full  h-72 gap-10 flex-col`}
       >
         <Link onClick={() => setIsOpen(!isOpen)} to={'/menu'} className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out px-10">
-          Menu
+          Request
         </Link>
         <Link onClick={() => setIsOpen(!isOpen)} to={'services'} className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out px-10">
           Services
