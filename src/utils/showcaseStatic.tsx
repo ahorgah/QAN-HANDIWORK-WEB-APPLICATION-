@@ -1,5 +1,5 @@
 import { BiBorderRadius } from "react-icons/bi";
-import {Chicken, Fish, Icecream, Strawberry} from "../components/Assets";
+import {Chicken, Fish, Icecream, Strawberry, Chicken1, Icecream1} from "../components/Assets";
 
 export const data = [
 
@@ -21,10 +21,10 @@ export const data = [
     },
     {   
         id: 3,
-        title: 'Constructors',
+        title: 'Electricals',
         desc: "",
         price: '',
-        imgSrc: Chicken
+        imgSrc: Chicken1
     },
     {
         id: 4,
@@ -42,10 +42,10 @@ export const data = [
     },
     {
         id: 1,
-        title: 'Welder',
+        title: 'Painter',
         desc: "",
         price: '',
-        imgSrc: Icecream
+        imgSrc: Icecream1
     },
 
 ]

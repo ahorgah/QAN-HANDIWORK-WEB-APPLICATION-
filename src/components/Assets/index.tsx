@@ -13,7 +13,8 @@ import IcreamI from "../../img/wed.png";
 import StrawberryI from "../../img/mec.jpg";
 import ChickenI from "../../img/cons.jpg";
 import FishI from "../../img/plumb.png";
-
+import Chicken1I from "../../img/onlineC.png";
+import Icecream1I from "../../img/painter.png";
 
 
 // Exports
@@ -31,3 +32,5 @@ export const EmptyCartImg = EmptyCartI
 export const NotFoundImg = NotFoundI
 export const CreditCard = Visa
 export const MOMO = Momo
+export const Chicken1 = Chicken1I
+export const Icecream1 = Icecream1I

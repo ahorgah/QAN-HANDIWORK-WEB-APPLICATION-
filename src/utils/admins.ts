@@ -1,4 +1,4 @@
 export const WHITELISTED_IDS = [
-    "keny.edemmm@gmail.com",
+    "keny.edem@gmail.com",
     ""
 ]
