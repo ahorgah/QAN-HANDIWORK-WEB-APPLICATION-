@@ -5,6 +5,7 @@ import {
   MdOutlineFavoriteBorder,
   MdRestaurantMenu,
 } from "react-icons/md";
+import { RiCustomerService2Line } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { FaCogs } from "react-icons/fa";
 import AddFood from "./AddFood";
@@ -46,7 +47,7 @@ const SidenavMenu = ({
     />
     <NavItem
       activePage={activePage}
-      svgIcon={<MdRestaurantMenu />}
+      svgIcon={<RiCustomerService2Line/>}
       title="Service"
       setActivePage={setActivePage}
       setPageContent={setPageContent}
