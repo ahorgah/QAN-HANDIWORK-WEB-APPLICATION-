@@ -53,7 +53,7 @@ Review & Pay: Leave a review of your experience and make secure payments through
 
 </p>
 
-<span className="text-orange-600 space-y-5  mt-5 text-[2.5rem] lg:text-[1.6rem]"><b> JOIN OUR NETWORK</b> <div className="space-y-5"></div> </span>
+<span className="text-orange-600 space-y-5  mt-5 text-[2.5rem] lg:text-[1.6rem]"><b> JOIN OUR NETWORK </b> <div className="space-y-5"></div> </span>
 Are you a skilled handyman looking for freelance opportunities in Accra? Join our growing network of professionals and connect with customers in need of your expertise. Enjoy flexible working hours, competitive pay, and the support of a trusted platform.
     </div>
   );

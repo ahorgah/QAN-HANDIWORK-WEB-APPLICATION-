@@ -56,7 +56,12 @@ const MobileNav = ({
           className="relative flex items-center justify-center text-textColor"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <FaHome className="text-headingColor text-4xl" />
+          <Link to="/Home">
+  <FaHome 
+    onClick={() => setIsOpen(!isOpen)} 
+    className="text-headingColor text-4xl" 
+  />
+</Link>
         </motion.div>
       </motion.div>
       <div
