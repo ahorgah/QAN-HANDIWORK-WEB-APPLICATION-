@@ -1,5 +1,5 @@
 import React from "react";
-import { BikeDelivery } from "../Assets";
+import { BikeDelivery, Logo } from "../Assets";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 const Left = () => {
@@ -9,7 +9,7 @@ const Left = () => {
         <p className="text-base text-orange-500 font-bold"></p>
         <div className="w-8 h-8 rounded-full overflow-hidden bg-white drop-shadow-xl">
         <img
-           
+           src={Logo}
           />
         </div>
       </div>
