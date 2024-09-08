@@ -45,7 +45,7 @@ const Footer = () => {
             target={"_blank"}
             rel="noreferrer"
             href="https://forms.gle/NoyyPm1FCebkkyo37"
-            className="text-orange-500 h-10 w-10 bg-primary rounded-full flex items-center justify-center"
+            className="text-orange-500 h-10 w-10 bg-primary font-bold rounded-full flex items-center justify-center"
           >Here</motion.a>
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0 md:text-xl">
