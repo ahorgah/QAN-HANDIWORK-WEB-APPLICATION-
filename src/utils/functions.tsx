@@ -91,7 +91,7 @@ export const fetchFoodData = async (dispatch: any) => {
       rating: Math.floor(Math.random() * 4) + 1 + (Math.random() < 0.5 ? 0.5 : 0), // Random rating from 1 to 5, can include 0.5
     }));
 
-    console.log(foodItemsWithRatings)
+   
     // Dispatch the updated food items with random ratings
     dispatch({
       type: "SET_FOOD_ITEMS",
