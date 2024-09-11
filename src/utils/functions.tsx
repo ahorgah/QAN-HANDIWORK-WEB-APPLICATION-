@@ -82,18 +82,26 @@ export const fetchUserCartData = async (user: any, dispatch: any) => {
 };
 
 export const fetchFoodData = async (dispatch: any) => {
-  await firebaseFetchFoodItems()
-    .then((data) => {
-      dispatch({
-        type: "SET_FOOD_ITEMS",
-        foodItems: data,
-      });
-    })
-    .then(() => {})
-    .catch((e) => {
-      console.log(e);
+  try {
+    const data = await firebaseFetchFoodItems();
+
+    // Append random ratings (from 1 to 5) to each food item
+    const foodItemsWithRatings = data.map((item: any) => ({
+      ...item,
+      rating: Math.floor(Math.random() * 4) + 1 + (Math.random() < 0.5 ? 0.5 : 0), // Random rating from 1 to 5, can include 0.5
+    }));
+
+   
+    // Dispatch the updated food items with random ratings
+    dispatch({
+      type: "SET_FOOD_ITEMS",
+      foodItems: foodItemsWithRatings,
     });
+  } catch (e) {
+    console.log(e);
+  }
 };
+
 
 export const getFoodyById = (menu: FoodItem[], fid: number) => {
   return menu.find((item: FoodItem) => item.id === fid);

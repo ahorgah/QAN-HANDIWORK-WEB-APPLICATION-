@@ -17,6 +17,7 @@ export type FoodItem = {
     calories: string;
     qty: string;
     category: string;
+    rating?: number
 };
 
 export type FoodItems = {
