@@ -105,7 +105,7 @@ const UpdateProfile = () => {
                   <div className="relative h-full">
                     <img
                       src={photoURL}
-                      alt="uploaded food"
+                      alt="uploaded image"
                       className="w-full h-full object-cover"
                     />
                     <motion.button
