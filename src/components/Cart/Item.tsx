@@ -1,9 +1,9 @@
 import { BiMinus, BiPlus } from "react-icons/bi";
+import { deleteCartItem, getFoodyById, updateCartItemQty } from "../../utils/functions";
 
 import { MdDelete } from "react-icons/md";
-import { motion } from "framer-motion";
 import { cartItem } from "../../../types";
-import { deleteCartItem, getFoodyById, updateCartItemQty } from "../../utils/functions";
+import { motion } from "framer-motion";
 import { useStateValue } from "../../context/StateProvider";
 
 const CartItem = ({ item }: { item: cartItem }) => {
@@ -29,23 +29,23 @@ const CartItem = ({ item }: { item: cartItem }) => {
       </div>
 
       <div className="group flex items-center gap-2  cursor-pointer">
-        <motion.div
+        {/* <motion.div
           className=""
           whileTap={{ scale: 0.75 }}
           onClick={qty > 1 ? () => updateCartItemQty(cartItems, foodItems, item, dispatch, -1) : () => {}}
         >
           <BiMinus className="text-gray-50" />
-        </motion.div>
+        </motion.div> */}
         <p className="text-sm text-gray-50 w-5 h-5 rounded-sm bg-cartBg flex items-center justify-center cursor-default">
           {qty}
         </p>
-        <motion.div
+        {/* <motion.div
           className=""
           whileTap={{ scale: 0.75 }}
           onClick={() => updateCartItemQty(cartItems, foodItems, item, dispatch, 1)}
         >
           <BiPlus className="text-gray-50" />
-        </motion.div>
+        </motion.div> */}
       </div>
 
       <motion.div
