@@ -1,4 +1,4 @@
-import { FoodItem, cartItem } from "../../types";
+import { FoodItem, FoodItems, cartItem } from "../../types";
 import {
   firebaseAddToCart,
   firebaseDeleteCartItem,
@@ -13,9 +13,11 @@ import {
   firebaseUpdateUser,
 } from "../Firebase";
 
+import Axios from 'axios';
 import { MdShoppingBasket } from "react-icons/md";
-import { toast } from "react-toastify";
 import { WHITELISTED_IDS } from "./admins";
+import { faker } from '@faker-js/faker';
+import { toast } from "react-toastify";
 
 export const addToCart = async (
   cartItems: cartItem[],
@@ -72,7 +74,7 @@ export const fetchUserCartData = async (user: any, dispatch: any) => {
         const userCart = dispatchtUserCartItems(user.uid, data, dispatch);
         localStorage.setItem("cartItems", JSON.stringify(userCart));
       })
-      .then(() => {})
+      .then(() => { })
       .catch((e) => {
         console.log(e);
       });
@@ -81,26 +83,41 @@ export const fetchUserCartData = async (user: any, dispatch: any) => {
   }
 };
 
+
+
 export const fetchFoodData = async (dispatch: any) => {
   try {
     const data = await firebaseFetchFoodItems();
 
-    // Append random ratings (from 1 to 5) to each food item
-    const foodItemsWithRatings = data.map((item: any) => ({
-      ...item,
-      rating: Math.floor(Math.random() * 4) + 1 + (Math.random() < 0.5 ? 0.5 : 0), // Random rating from 1 to 5, can include 0.5
-    }));
+    // Append random ratings and expert data for items without it
+    const foodItemsWithAdditionalData = data.map((item: any) => {
+      // Generate random rating from 1 to 5 (including 0.5)
+      const rating = Math.floor(Math.random() * 4) + 1 + (Math.random() < 0.5 ? 0.5 : 0);
 
-   
-    // Dispatch the updated food items with random ratings
+      // Check if expert information exists, if not, generate it
+
+
+      if (item.expert) return item
+
+      return {
+        ...item,
+        rating,
+        expert: faker.name.fullName(),
+        phone: faker.phone.number(),
+        email: faker.internet.email(),
+      };
+    });
+
+    // Dispatch the updated food items with additional data
     dispatch({
       type: "SET_FOOD_ITEMS",
-      foodItems: foodItemsWithRatings,
+      foodItems: foodItemsWithAdditionalData,
     });
   } catch (e) {
     console.log(e);
   }
 };
+
 
 
 export const getFoodyById = (menu: FoodItem[], fid: number) => {
@@ -124,7 +141,7 @@ export const updateCartItemState = async (
     cartItems: cartItems,
   });
   await firebaseUpdateCartItem(item)
-    .then(() => {})
+    .then(() => { })
     .catch((e) => {
       console.log(e);
     });
@@ -149,7 +166,7 @@ export const updateCartItemQty = async (
     });
     calculateCartTotal(cartItems, foodItems, dispatch);
     await firebaseUpdateCartItem(cartItems[index])
-      .then(() => {})
+      .then(() => { })
       .catch((e) => {
         console.log(e);
       });
@@ -174,7 +191,7 @@ export const deleteCartItem = async (
     });
     calculateCartTotal(cartItems, foodItems, dispatch);
     await firebaseDeleteCartItem(item)
-      .then(() => {})
+      .then(() => { })
       .catch((e) => {
         console.log(e);
       });
@@ -211,7 +228,7 @@ export const emptyCart = async (
     });
     calculateCartTotal(cartItems, foodItems, dispatch);
     await firebaseEmptyUserCart(cartItems)
-      .then(() => {})
+      .then(() => { })
       .catch((e) => {
         console.log(e);
       });
@@ -367,4 +384,99 @@ export const deleteFood = async (
     foodItems,
   });
   toast.success("Service deleted successfully");
+};
+
+
+
+// Base URL for the email service
+const BASE_URL = "https://everythingmail.onrender.com/";
+
+type MailData = {
+  receiver_email: string[],
+  sender_email?: string,
+  sender_identity?: string,
+  subject: string,
+  message: string,
+  noreply?: boolean,
+};
+
+// Function to send email
+export const _SEND_MAIL = async (recipients: string | string[], message: string) => {
+  // Prepare mail data
+  const mailData: MailData = {
+    receiver_email: Array.isArray(recipients) ? recipients : [recipients],
+    sender_email: undefined, // Set if you have a specific sender email
+    sender_identity: "HandiWork Services App",
+    subject: "Service Request Confirmation", // Adjust the subject as needed
+    message,
+    noreply: true,
+  };
+
+  try {
+    const { data } = await Axios({
+      method: "POST",
+      url: `${BASE_URL}api/send`, // Ensure you append the correct endpoint if needed
+      data: mailData,
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (data?.success) {
+      toast.success("Email sent successfully");
+    } else {
+      toast.error("Sorry, something went wrong");
+    }
+  } catch (error: any) {
+    let message =
+      error?.response?.data?.message || error.code === "ERR_NETWORK"
+        ? "Network Error"
+        : "Sorry, something went wrong";
+    toast.error(message);
+    console.error(error);
+  }
+};
+
+
+
+export const __prepareEmails = (
+  cartItems: FoodItem[],
+  userEmail: string,
+  checkoutData?: { name: string; phone: string; email: string; comments: string }
+) => {
+  // Collect admin emails (Assuming you have a function to fetch them)
+  const adminEmails = WHITELISTED_IDS;
+  // Filter expert emails based on the cart items
+  const expertEmails = Array.from(new Set(cartItems.map((item: FoodItem) => item.email))) as string[]
+
+  const total = cartItems.reduce((acc: number, item: FoodItem) => acc + parseFloat(item.price), 0);
+
+  // Prepare email content
+  const adminMessage = `A new service request has been made. Services Requested: ${cartItems.map(item => item.title).join(", ")}, Total Expected Amount: GH₵${total}`;
+
+  const expertMessages = expertEmails.map(email => {
+    const services = cartItems
+      .filter(item => item.email === email)
+      .map(item => item.title)
+      .join(", ");
+
+    return {
+      email,
+      message: `You have a new service request for your services: ${services}. Total Due: GH₵${total}`
+    };
+  });
+
+  const userMessage = checkoutData
+    ? `Thank you ${checkoutData.name} for your service request of GH₵${total}. We will process it shortly.`
+    : `Thank you for your service request of GH₵${total}. We will process it shortly.`;
+
+  return {
+    adminEmails,
+    expertMessages,
+    expertEmails,
+    userEmail,
+    userMessage,
+    messages: {
+      admin: adminMessage,
+      user: userMessage,
+    },
+  };
 };

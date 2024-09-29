@@ -1,11 +1,12 @@
-import { useStateValue } from "../../context/StateProvider";
 import CartBody from "./Body";
 import CarttHeader from "./Header";
-import { motion } from "framer-motion";
+import Checkout from "../Checkout";
 import EmptyCart from "../EmptyCart";
 import NotFound from "../NotFound";
-import Checkout from "../Checkout";
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { useStateValue } from "../../context/StateProvider";
+
 const Cart = () => {
   const [{ cartItems }] = useStateValue();
   const [checkoutOpen, setCheckoutOpen] = useState(false);

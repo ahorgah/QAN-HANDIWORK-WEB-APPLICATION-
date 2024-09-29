@@ -1,33 +1,61 @@
+import { FoodItem, cartItem } from "../../../types";
+import { _SEND_MAIL, __prepareEmails, emptyCart } from "../../utils/functions";
+
 import { BiLock } from "react-icons/bi";
 import CardForm from "./forms/Card";
 import CheckoutFooter from "./footer";
+import { ImSpinner3 } from "react-icons/im";
 import MomoForm from "./forms/Momo";
 import Selector from "./Selector";
 import { motion } from "framer-motion";
-import { useStateValue } from "../../context/StateProvider";
-import { emptyCart } from "../../utils/functions";
-import { useState } from "react";
-import { ImSpinner3 } from "react-icons/im";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import { useStateValue } from "../../context/StateProvider";
 
 const Body = ({ action }: { action: any }) => {
-  const [{ checkoutData, cartTotal, paymentMethod, cartItems, foodItems }, dispatch] =
-    useStateValue();
+  const [{ checkoutData, cartTotal, paymentMethod, cartItems, foodItems }, dispatch] = useStateValue();
   const [loading, setLoading] = useState(false);
+  const items = cartItems.map((item: cartItem) => {
+    const foodItem = foodItems.find((foodItem: FoodItem) => foodItem.id === item.fid);
+    return {
+      ...item,
+      ...foodItem,
+    };
+  });
+  const completePayment = async () => {
+    if (paymentMethod === "online" && !checkoutData) return toast.error("Complete request info");
 
-  const completePayment = () => {
-    if(!checkoutData) return toast.error("Complete payment info")
     setLoading(true);
-    setTimeout(async () => {
-      setLoading(false);
+
+    // Prepare emails
+    const { adminEmails, expertMessages, userEmail, messages } = __prepareEmails(items, checkoutData.email, checkoutData);
+
+    try {
+      // Send emails to admin
+      await _SEND_MAIL(adminEmails, messages.admin);
+
+      // Send emails to each expert with their specific message
+      await Promise.all(expertMessages.map(({ email, message }) => _SEND_MAIL(email, message)));
+
+      // Send confirmation email to user
+      await _SEND_MAIL(userEmail, messages.user); // Corrected to pass userEmail as a string
+
+      // Implement your empty cart logic
       await emptyCart(cartItems, foodItems, dispatch);
+
+    } catch (error) {
+      console.error("Email sending failed", error);
+      toast.error("Failed to send email notifications.");
+    } finally {
+      // Success toast and loading state management
+      toast.success("Your request has been sent successfully.");
+      setLoading(false);
       action(false);
-      paymentMethod == "online" ? toast.success("Service request has been sent successfuly", {
-        position: "top-center",
-        autoClose: 6000
-      }): window.location.href="tel:+233549783787"
-    }, 3000);
+    }
   };
+
+
+
   return (
     <div className="w-full h-full rounded-t-[2rem]  bg-cartBg flex flex-col">
       {/* Payment Selectors */}
@@ -51,7 +79,7 @@ const Body = ({ action }: { action: any }) => {
           >
             {!loading && <BiLock className="" />}
             {!loading ? (
-              paymentMethod == "online"? "SEND REQUEST": "CONTACT PROVIDER"
+              paymentMethod === "online" ? "SEND REQUEST" : "PING EXPERT(S)"
             ) : (
               <ImSpinner3 className="animate animate-spin" />
             )}
