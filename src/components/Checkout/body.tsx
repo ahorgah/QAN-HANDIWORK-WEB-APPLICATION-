@@ -61,7 +61,7 @@ const Body = ({ action }: { action: any }) => {
       {/* Payment Selectors */}
       <Selector />
       {/* payment form  */}
-      <div className="min-h-[50vh] mt-5">
+      <div className="min-h-[50vh] mt-5 overflow-y-auto mb-4">
         {paymentMethod === "online" ? <MomoForm /> : <CardForm />}
         <div className="w-full flex items-center justify-center my-2">
           <p className="text-gray-300">
