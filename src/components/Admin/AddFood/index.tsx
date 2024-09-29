@@ -1,27 +1,30 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+
 import { AssetUploader, Loader } from "../..";
 import { BiCategory, BiFoodMenu } from "react-icons/bi";
 import {
   MdDeleteOutline,
-  MdOutlineDataSaverOn,
-  MdOutlineCategory,
-  MdOutlineFoodBank,
   MdGppGood,
+  MdOutlineCategory,
+  MdOutlineDataSaverOn,
+  MdOutlineMailOutline,
   MdOutlineProductionQuantityLimits,
 } from "react-icons/md";
 import {
-  firebaseFetchFoodItems,
   firebaseRemoveUploadedImage,
   firebaseSaveProduct,
 } from "../../../Firebase";
 
 import { Categories } from "../../../utils/categories";
 import CategoriesSelector from "./CategoriesSelector";
+import { FaUserCheck } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
+import { IoMdPhonePortrait } from "react-icons/io";
+import { fetchFoodData } from "../../../utils/functions";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useStateValue } from "../../../context/StateProvider";
-import { fetchFoodData } from "../../../utils/functions";
 
 const AddFood = () => {
   const [title, setTitle] = useState("");
@@ -29,8 +32,10 @@ const AddFood = () => {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
   const [category, setCategory] = useState("");
+  const [expert, setExpert] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const [quantity, setQuantity] = useState("");
   const [description, setDescription] = useState("");
   const [loaderMessage, setLoadermessage] = useState("");
   const [{ foodItems }, dispatch] = useStateValue();
@@ -43,7 +48,7 @@ const AddFood = () => {
     setLoadermessage(`Saving image ${title}.`);
     setLoading(true);
     try {
-      if (!title || !calories || !price || !image || !category) {
+      if (!title || !calories || !price || !image || !category || !expert || !email || !phone || !description) {
         toast.error("Please fill all fields before saving image 🤗");
         setLoading(false);
         return;
@@ -56,7 +61,9 @@ const AddFood = () => {
           description: description,
           price: price,
           imageURL: image,
-          qty: quantity,
+          email,
+          phone,
+          expert
         };
         toast
           .promise(firebaseSaveProduct(data), {
@@ -86,7 +93,9 @@ const AddFood = () => {
     setPrice("");
     setImage(null);
     // setCategory("");
-    setQuantity("");
+    setPhone("");
+    setEmail("");
+    setExpert("");
     setDescription("");
   };
 
@@ -108,7 +117,7 @@ const AddFood = () => {
           <input
             type="text"
             required
-            placeholder="Enter Category name"
+            placeholder="Enter Service name"
             autoFocus
             className="h-full w-full  bg-transparent pl-2 text-textColor outline-none border-none placeholder:text-gray-400"
             value={title}
@@ -125,7 +134,7 @@ const AddFood = () => {
               selected={category}
             />
           </div>
-          <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
+          {/* <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
             <MdOutlineProductionQuantityLimits className="text-gray-600 text-2xl" />
             <input
               type="text"
@@ -136,7 +145,7 @@ const AddFood = () => {
               value={quantity}
               onChange={(e) => setQuantity(validateNumber(e.target.value))}
             />
-          </div>
+          </div> */}
         </div>
         <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-[225px]  md:h-[420px] round-lg">
           {loading ? (
@@ -174,7 +183,7 @@ const AddFood = () => {
         </div>
         <div className="w-full flex flex-col md:flex-row items-center gap-3">
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-            <MdGppGood  className="text-gray-600 text-2xl" />
+            <MdGppGood className="text-gray-600 text-2xl" />
             <input
               type="text"
               required
@@ -209,6 +218,45 @@ const AddFood = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+        </div>
+
+        <div className="w-full py-3 border-b border-gray-300 flex -tems-center gap-2">
+          <FaUserCheck className="text-xl text-gray-600" />
+          <input
+            type="text"
+            required
+            placeholder="Expert Name"
+            autoFocus
+            className="h-full w-full  bg-transparent pl-2 text-textColor outline-none border-none placeholder:text-gray-400"
+            value={expert}
+            onChange={(e) => setExpert(e.target.value)}
+          />
+        </div>
+        <div className="w-full flex flex-col md:flex-row items-center gap-3">
+          <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
+            <IoMdPhonePortrait className="text-gray-600 text-2xl" />
+            <input
+              type="text"
+              required
+              placeholder="Phone Number"
+              autoFocus
+              className="h-full w-full  bg-transparent pl-2 text-textColor outline-none border-none placeholder:text-gray-400"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
+            <MdOutlineMailOutline className="text-gray-600 text-2xl" />
+            <input
+              type="email"
+              required
+              placeholder="Expert Email"
+              autoFocus
+              className="h-full w-full  bg-transparent pl-2 text-textColor outline-none border-none placeholder:text-gray-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="w-full flex items-center justify-center">
