@@ -24,7 +24,6 @@ const Body = ({ action }: { action: any }) => {
   });
   const completePayment = async () => {
     if (paymentMethod === "online" && !checkoutData) return toast.error("Complete request info");
-
     setLoading(true);
 
     // Prepare emails

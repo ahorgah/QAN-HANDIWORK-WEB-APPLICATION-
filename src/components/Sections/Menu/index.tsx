@@ -11,10 +11,6 @@ const Menu = ({ title }: { title?: string }) => {
   const [scrollValue, setScrollValue] = useState(0);
   const [{ foodItems }, dispatch] = useStateValue();
   const [filter, setFilter] = useState<string>("all");
-
-
-
-  console.log(foodItems);
   return (
     <section className="w-full my-5" id="menu">
       <div className="w-full flex items-center justify-center">
