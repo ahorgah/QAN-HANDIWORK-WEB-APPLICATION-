@@ -436,7 +436,6 @@ export const _SEND_MAIL = async (recipients: string | string[], message: string)
 };
 
 
-
 export const __prepareEmails = (
   cartItems: FoodItem[],
   userEmail: string,
@@ -444,14 +443,26 @@ export const __prepareEmails = (
 ) => {
   // Collect admin emails (Assuming you have a function to fetch them)
   const adminEmails = WHITELISTED_IDS;
+
   // Filter expert emails based on the cart items
-  const expertEmails = Array.from(new Set(cartItems.map((item: FoodItem) => item.email))) as string[]
+  const expertEmails = Array.from(new Set(cartItems.map((item: FoodItem) => item.email))) as string[];
 
   const total = cartItems.reduce((acc: number, item: FoodItem) => acc + parseFloat(item.price), 0);
 
-  // Prepare email content
-  const adminMessage = `A new service request has been made. Services Requested: ${cartItems.map(item => item.title).join(", ")}, Total Expected Amount: GH₵${total}`;
+  // Prepare the common checkout details if available
+  const checkoutDetails = checkoutData
+    ? `Customer Details: 
+        Name: ${checkoutData.name}, 
+        Phone: ${checkoutData.phone}, 
+        Email: ${checkoutData.email}, 
+        Comments: ${checkoutData.comments}`
+    : '';
 
+  // Prepare admin email content
+  const adminMessage = `A new service request has been made. Services Requested: ${cartItems.map(item => item.title).join(", ")}, Total Expected Amount: GH₵${total}. 
+  ${checkoutDetails}`;
+
+  // Prepare expert email content
   const expertMessages = expertEmails.map(email => {
     const services = cartItems
       .filter(item => item.email === email)
@@ -460,12 +471,15 @@ export const __prepareEmails = (
 
     return {
       email,
-      message: `You have a new service request for your services: ${services}. Total Due: GH₵${total}`
+      message: `You have a new service request for your services: ${services}. Total Due: GH₵${total}. 
+      ${checkoutDetails}`
     };
   });
 
+  // Prepare user email content
   const userMessage = checkoutData
-    ? `Thank you ${checkoutData.name} for your service request of GH₵${total}. We will process it shortly.`
+    ? `Thank you ${checkoutData.name} for your service request of GH₵${total}. We will process it shortly. 
+    ${checkoutDetails}`
     : `Thank you for your service request of GH₵${total}. We will process it shortly.`;
 
   return {

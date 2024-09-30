@@ -22,9 +22,9 @@ const CardForm = () => {
 
 
   return (
-    <div className="w-full p-1 px-2 rounded-lg flex flex-col overflow-y-auto">
-      {items.map((item: FoodItem, index: number) => (
-        <div key={index} className="w-full flex flex-col mb-2">
+    <div className="w-full p-1 px-2 rounded-lg flex flex-col">
+      {items.map((item: FoodItem) => (
+        <div key={item.id} className="w-full flex flex-col mb-2">
           <label className="font-bold text-sm mb-1 text-gray-100">
             {item.title}
           </label>
