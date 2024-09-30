@@ -451,7 +451,7 @@ export const __prepareEmails = (
 
   // Prepare the common checkout details if available
   const checkoutDetails = checkoutData
-    ? `Customer Details: 
+    ? `\n\nCustomer Details: 
         Name: ${checkoutData.name}, 
         Phone: ${checkoutData.phone}, 
         Email: ${checkoutData.email}, 
